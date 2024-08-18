@@ -1,6 +1,6 @@
 function Header() {
   return (
-    <div className="flex items-center justify-between bg-yellow-400 px-6 py-5  sticky top-0">
+    <div className="flex items-center justify-between bg-yellow-400 px-6 py-5  sticky top-0 z-20">
       <h1 className="text-md font-semibold uppercase tracking-widest text-yellow-950 subpixel-antialiased">
         Fast React Pizza Co.
       </h1>

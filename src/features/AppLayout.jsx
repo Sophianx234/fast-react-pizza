@@ -1,13 +1,15 @@
+import { Outlet } from "react-router-dom"
 import Header from "./components/Header"
-import Homepage from "./components/Homepage"
+import CartOverview from "./cart/CartOverview"
 
 function AppLayout() {
     return (
         <div>
-           <Header/> 
+            <Header/>
            <main>
-            <Homepage/>
+            <Outlet/>
            </main>
+           <CartOverview/>
         </div>
     )
 }
