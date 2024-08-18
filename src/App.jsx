@@ -4,6 +4,7 @@ import AppLayout from "./features/AppLayout"
 import Error from "./features/components/Error"
 import Menu from "./features/menu/Menu"
 import {loader as menuLoader} from './features/menu/Menu'
+import Cart from "./features/cart/Cart"
 
 const router = createBrowserRouter([
   { 
@@ -17,7 +18,12 @@ const router = createBrowserRouter([
       {
         path: '/menu',
         element: <Menu/>,
-        loader: menuLoader
+        loader: menuLoader,
+        errorElement: <Error/>
+      },
+      {
+        path: '/cart',
+        element: <Cart/>
       }
     ]
 
