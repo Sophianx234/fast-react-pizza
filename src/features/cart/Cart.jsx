@@ -1,5 +1,7 @@
+import { useSelector } from "react-redux"
 import Button from "../components/Button"
 import CartItem from "./CartItem"
+import { getCart } from "../../store"
 
 function Cart() {
     const fakeCart = [
@@ -42,17 +44,20 @@ function Cart() {
             "soldOut": false
         },
             ]
+
+    const cart = useSelector(getCart)
+
     return (
         <div className="flex flex-col mx-auto max-w-[800px] justify-center  px-6 mt-8  ">
             <Button to='menu' type='linkMain'>&larr; Back to menu</Button>
         <div className="mt-6">
             <h4 className="text-lg font-medium">Your cart, damian</h4>
             <ul className="divide-y  mt-2">
-            {fakeCart.map(item=><CartItem item={item} key={item.id} />)}
+            {cart.map(item=><CartItem item={item} key={item.id} />)}
             </ul>
 
         </div>
-
+        
             
         </div>
     )

@@ -7,13 +7,20 @@ import { getQuantity } from "../store"
 function AppLayout() {
     const numQuantity = useSelector(getQuantity)
     return (
-        <div className="relative">
+        <div className="flex flex-col justify-between">
+            <div>
+
             <Header/>
            <main>
             <Outlet/>
            </main>
+            </div>
+
            
            {numQuantity?<CartOverview/>: null}
+           
+            
+           
            
 
         </div>

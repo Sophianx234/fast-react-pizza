@@ -10,7 +10,7 @@ function Button({ children, type, to, handleClick }) {
       base +
       " uppercase  font-semibold  text-xs rounded-full text-yellow-950 py-2",
     link: " uppercase text-sm",
-    linkMain: " text-purple-600 tracking-wide  text-sm  ",
+    linkMain: " text-purple-700 font-bold text-sx tracking-wide  text-sm  ",
   };
   if (to)
     return (
