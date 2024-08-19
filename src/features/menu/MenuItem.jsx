@@ -1,11 +1,14 @@
 import { useDispatch, useSelector } from "react-redux"
 import Button from "../components/Button"
 import { formatCurrency } from "../utils/helpers"
-import { addItem } from "../cart/CartSlice"
+import { addItem, deleteItem } from "../cart/CartSlice"
+import { useState } from "react"
 
 function MenuItem({item}) {
     const dispatch = useDispatch()
     const {id, unitPrice,name, imageUrl, ingredients,soldOut} = item
+    const [clicked, setClicked] = useState(false)
+    console.log(clicked)
 
     const cart = useSelector(store=>store.cart.cart)
     console.log(cart)
@@ -16,7 +19,15 @@ function MenuItem({item}) {
             id, unitPrice,name,imageUrl, ingredients,soldOut
         }
         dispatch(addItem(newItem))
-        console.log('clicked')
+        setClicked(clicked=>!clicked)
+
+    }
+    function handleDeleteItem(e){
+        e.preventDefault();
+        dispatch(deleteItem(id))
+        setClicked(clicked=>!clicked)
+
+
 
     }
     return (
@@ -32,7 +43,7 @@ function MenuItem({item}) {
             <p className="font-semibold text-stone-600 ">{formatCurrency(unitPrice)}
             </p>
             
-            {!soldOut&& <Button type='secondary' handleClick ={handleAddItem}>Add to Cart</Button>}
+            {!soldOut&& <Button type='secondary' handleClick ={clicked? handleDeleteItem:handleAddItem}>{clicked? "Delete":`Add to Cart`}</Button>}
 
 
                 </div>
