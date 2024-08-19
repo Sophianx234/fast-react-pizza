@@ -5,7 +5,8 @@ import Error from "./features/components/Error"
 import Menu from "./features/menu/Menu"
 import {loader as menuLoader} from './features/menu/Menu'
 import Cart from "./features/cart/Cart"
-
+import CreateOrder from "./features/order/CreateOrder"
+import {action as orderAction} from './features/order/CreateOrder'
 const router = createBrowserRouter([
   { 
     element: <AppLayout/>,
@@ -24,6 +25,11 @@ const router = createBrowserRouter([
       {
         path: '/cart',
         element: <Cart/>
+      },
+      {
+        path: 'order/new',
+        element: <CreateOrder/>,
+        action: orderAction
       }
     ]
 
