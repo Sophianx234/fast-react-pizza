@@ -3,6 +3,7 @@ import Button from "../components/Button"
 import { formatCurrency } from "../utils/helpers"
 import { addItem, deleteItem } from "../cart/CartSlice"
 import { useState } from "react"
+import RegulateQuantity from "../components/RegulateQuantity"
 
 function MenuItem({item}) {
     const dispatch = useDispatch()
@@ -39,11 +40,15 @@ function MenuItem({item}) {
                 <h3 className="text-stone-800  font-semibold text-lg">{name}</h3>
                 <p className="text-sm text-stone-500">{ingredients.join(', ')}</p>
                 </div>
-                <div className="grid grid-cols-[2fr_.6fr] items-center">
+                <div className="grid grid-cols-[2fr_1.5fr] items-center">
             <p className="font-semibold text-stone-600 ">{formatCurrency(unitPrice)}
             </p>
-            
+            <div className="grid grid-cols-[1fr_2fr] items-center gap-6">
+                <RegulateQuantity/>
+
+
             {!soldOut&& <Button type='secondary' handleClick ={clicked? handleDeleteItem:handleAddItem}>{clicked? "Delete":`Add to Cart`}</Button>}
+            </div>
 
 
                 </div>

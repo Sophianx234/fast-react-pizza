@@ -12,10 +12,10 @@ function CreateOrder() {
 
         <h1 className="text-xl font-medium text-stone-900">Ready to order? Let&apos;s go!</h1>
 
-        <Form action="" method="POST" className="grid grid-1 items-center space-y-6 mt-8 ">
+        <Form  method="POST" className="grid grid-1 items-center space-y-6 mt-8 ">
         <label className="space-y-1" onSubmit={e=>e.preventDefault()}>
             <p className="text-neutral-500 text-lg pl-3  ">First Name</p>
-            <input type="text" name="name" id="" className="i w-full py-3 rounded-full focus:ring focus:outline-none focus:ring-yellow-200 focus:ring-offset-1 indent-5 bg-white focus:bg-whit" required/>
+            <input type="text" name="customer" id="" className="i w-full py-3 rounded-full focus:ring focus:outline-none focus:ring-yellow-200 focus:ring-offset-1 indent-5 bg-white focus:bg-whit" required/>
 
         </label>
         <label className="space-y-1">
@@ -35,7 +35,7 @@ function CreateOrder() {
         </label>
         <div className="grid grid-cols-[.7fr_2fr]">
             
-            <Button type='primary'>Order now</Button>
+            <Button type='primary' >Order now</Button>
         </div>
         </Form>
         </div>
@@ -48,13 +48,15 @@ export async function action({request}){
     const formData = await request.formData();
     const data = Object.fromEntries(formData)
     const order ={
-        ...data, cart:JSON.stringify(data.cart),
+        ...data, cart:JSON.parse(data.cart),
+        position: '',
         priority: data.priority === 'on'
 
     }
-    console.log(data)
-    console.log(order)
+    
+    console.log('order',order)
     const newOrder = await createOrder(order)
-     return  redirect(`/order/${newOrder.id}`)
+    console.log('neworder',newOrder)
+     
 
 }

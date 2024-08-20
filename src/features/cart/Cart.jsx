@@ -4,8 +4,10 @@ import CartItem from "./CartItem"
 import { getCart, getQuantity } from "../../store"
 import { clearCart } from "./CartSlice"
 import ErrorCart from "./ErrorCart"
+import { useNavigate } from "react-router-dom"
 
 function Cart() {
+
     const fakeCart = [
         {
             "id": 1,
@@ -21,13 +23,19 @@ function Cart() {
         }   ]
 
     const cart = useSelector(getCart)
+
     const numQuantity = useSelector(getQuantity)
     const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     function handleClearCart(e){
         e.preventDefault()
         dispatch(clearCart())
         
+    }
+    function handleOrder(e){
+        e.preventDefault();
+        navigate('/order/new');
     }
     
 
@@ -42,7 +50,7 @@ function Cart() {
             </ul>
             { numQuantity?
             <div className="space-x-4">
-                <Button type='primary'>Order Pizzas</Button>
+                <Button type='primary' handleClick={handleOrder}>Order Pizzas</Button>
                 <Button type='transparent' handleClick={handleClearCart}>clear Cart</Button>
             </div>: null}
 
