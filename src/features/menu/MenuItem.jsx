@@ -44,7 +44,7 @@ function MenuItem({item}) {
             <p className="font-semibold text-stone-600 ">{formatCurrency(unitPrice)}
             </p>
             <div className="grid grid-cols-[1fr_2fr] items-center gap-6">
-                <RegulateQuantity/>
+                <RegulateQuantity id={id}/>
 
 
             {!soldOut&& <Button type='secondary' handleClick ={clicked? handleDeleteItem:handleAddItem}>{clicked? "Delete":`Add to Cart`}</Button>}

@@ -1,30 +1,31 @@
-import { Outlet } from "react-router-dom"
-import Header from "./components/Header"
-import CartOverview from "./cart/CartOverview"
-import { useSelector } from "react-redux"
-import { getQuantity } from "../store"
+import { Outlet, useNavigation } from "react-router-dom";
+import Header from "./components/Header";
+import CartOverview from "./cart/CartOverview";
+import { useSelector } from "react-redux";
+import { getQuantity } from "../store";
+import Spinner from "./components/Spinner";
 
 function AppLayout() {
-    const numQuantity = useSelector(getQuantity)
-    return (
-        <div className="flex flex-col justify-between h-screen">
-            <div>
+  const numQuantity = useSelector(getQuantity);
+  const navigation = useNavigation()
+  console.log(navigation)
+  const isLoading = navigation.state === "loading";
+  console.log(isLoading);
 
-            <Header/>
-           <main>
-            <Outlet/>
-           </main>
-            </div>
+  return (
+    <div className="flex h-screen flex-col justify-between">
+      <div>
+        {isLoading && <Spinner isLoading={isLoading} />}
+        <Header />
 
-           
-           {numQuantity?<CartOverview/>: null}
-           
-            
-           
-           
+        <main>
+          <Outlet />
+        </main>
+      </div>
 
-        </div>
-    )
+      {numQuantity ? <CartOverview /> : null}
+    </div>
+  );
 }
 
-export default AppLayout
+export default AppLayout;
