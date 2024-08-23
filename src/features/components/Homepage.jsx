@@ -2,10 +2,7 @@ import { useNavigate } from "react-router-dom";
 import Button from "./Button";
 
 function Homepage() {
-  const navigate = useNavigate()
-  function handleNavigation(){
-    navigate('/menu')
-  }
+  
   return (
     <>
     <div className="mt-14 flex flex-col gap-8 px-4 text-center text-xl">
@@ -26,7 +23,7 @@ function Homepage() {
           className="mt-3 w-96 flex-1 rounded-full bg-white px-2 py-2 indent-4 text-lg font-medium placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-200 focus:ring-offset-1"
           placeholder="Your full name"
         />
-        <Button type='primary' handleClick={handleNavigation}>Start Ordering</Button>
+        <Button type='primary' to='menu'>Start Ordering</Button>
       </div>
     </div>
     </>

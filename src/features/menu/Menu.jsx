@@ -2,10 +2,13 @@ import { useLoaderData, useNavigation } from "react-router-dom";
 import { getMenu } from "../services/apiRestaurant";
 import MenuItem from "./MenuItem";
 import { HashLoader } from "react-spinners";
+import Spinner from "../components/Spinner";
 
 function Menu() {
+    
   const menu = useLoaderData();
   console.log(menu);
+
   
   return (
     <div className="mx-auto flex max-w-[900px] justify-center">

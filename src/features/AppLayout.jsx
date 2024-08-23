@@ -8,14 +8,13 @@ import Spinner from "./components/Spinner";
 function AppLayout() {
   const numQuantity = useSelector(getQuantity);
   const navigation = useNavigation()
-  console.log(navigation)
-  const isLoading = navigation.state === "loading";
-  console.log(isLoading);
+    const isLoading = navigation.state === 'loading';
+  
 
   return (
     <div className="flex h-screen flex-col justify-between">
       <div>
-        {isLoading && <Spinner isLoading={isLoading} />}
+      {isLoading && <Spinner isLoading={isLoading} />}
         <Header />
 
         <main>
