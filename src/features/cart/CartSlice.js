@@ -31,12 +31,10 @@ const cartSlice = createSlice({
         },
         decreaseItem(state,action){
             const item = state.cart.find(item=> item.id === action.payload)
-            if(item.quantity === 0){
-
-                cartSlice.caseReducers.deleteItem(state,action)    
-            }
-                else
+            if(!item.quantity) item.quantity = 1   
             item.quantity -=1
+            if(item.quantity === 0)
+                cartSlice.caseReducers.deleteItem(state,action) 
         },
         clearCart(state){
             state.cart = []
