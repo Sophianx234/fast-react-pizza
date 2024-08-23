@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import UserName from "../user/UserName";
 
 function Header() {
   return (
@@ -11,10 +12,8 @@ function Header() {
         placeholder="Search..."
         className="rounded-full bg-yellow-100 py-2 indent-4 transition-all  focus:scale-x-110 sm:w-80 outline-none px-1 pr-4 text-stone-600  font-medium "
       />
-
-      <p className="text-md hidden font-semibold uppercase tracking-wide text-yellow-950 sm:block">
-        Damian
-      </p>
+      <UserName/>
+      
     </div>
   );
 }
