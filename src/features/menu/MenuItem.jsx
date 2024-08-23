@@ -12,6 +12,7 @@ function MenuItem({item}) {
 
     const cart = useSelector(store=>store.cart.cart)
     console.log(cart)
+    const itemExist = cart.find(item=>item.id === id)
 
     function handleAddItem(e){
         e.preventDefault();
@@ -43,10 +44,15 @@ function MenuItem({item}) {
             <p className="font-semibold text-stone-600 ">{formatCurrency(unitPrice)}
             </p>
             <div className="grid grid-cols-[1fr_2fr] items-center gap-6">
-                <RegulateQuantity id={id}/>
+                <div>
 
+                {itemExist&&<RegulateQuantity id={id}/>}
+                </div>
 
-            {!soldOut&& <Button type='secondary' handleClick ={clicked? handleDeleteItem:handleAddItem}>{clicked? "Delete":`Add to Cart`}</Button>}
+        
+
+            {!soldOut&& <Button type='secondary' handleClick ={itemExist? handleDeleteItem:handleAddItem}>{itemExist? "Delete":`Add to Cart`}</Button>}
+        
             </div>
 
 

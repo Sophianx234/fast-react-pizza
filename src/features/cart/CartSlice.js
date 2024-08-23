@@ -21,6 +21,7 @@ const cartSlice = createSlice({
 
             const item = state.cart.find(item=> item.id === action.payload);
             console.log(action.payload)
+            
             if(!item.quantity)
             item.quantity = 1
             item.quantity +=1
@@ -30,7 +31,11 @@ const cartSlice = createSlice({
         },
         decreaseItem(state,action){
             const item = state.cart.find(item=> item.id === action.payload)
-            if(item.quantity === 0)return
+            if(item.quantity === 0){
+
+                cartSlice.caseReducers.deleteItem(state,action)    
+            }
+                else
             item.quantity -=1
         },
         clearCart(state){
