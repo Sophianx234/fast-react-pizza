@@ -9,7 +9,6 @@ function AppLayout() {
   const numQuantity = useSelector(getQuantity);
   const navigation = useNavigation()
     const isLoading = navigation.state === 'loading';
-  
 
   return (
     <div className="flex h-screen flex-col justify-between">

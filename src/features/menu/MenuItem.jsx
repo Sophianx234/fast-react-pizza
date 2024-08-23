@@ -9,7 +9,6 @@ function MenuItem({item}) {
     const dispatch = useDispatch()
     const {id, unitPrice,name, imageUrl, ingredients,soldOut} = item
     const [clicked, setClicked] = useState(false)
-    console.log(clicked)
 
     const cart = useSelector(store=>store.cart.cart)
     console.log(cart)
