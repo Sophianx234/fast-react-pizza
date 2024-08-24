@@ -43,7 +43,7 @@ function MenuItem({item}) {
                 <div className="grid grid-cols-[2fr_1.5fr] items-center">
             <p className="font-semibold text-stone-600 ">{formatCurrency(unitPrice)}
             </p>
-            <div className="grid grid-cols-[1fr_2fr] items-center gap-6">
+            <div className="grid md:grid-cols-[1fr_2fr]  md:items-center gap-6  sm:items-center  justify-between sm:grid-cols-[.2fr_5fr]  ">
                 <div>
 
                 {itemExist&&<RegulateQuantity id={id}/>}

@@ -8,7 +8,7 @@ function Button({ children, type, to, handleClick }) {
       " py-4 px-4 uppercase text-base font-semibold rounded-full text-yellow-950 mt-4  transition-all",
     secondary:
       base +
-      " uppercase  font-semibold  text-xs rounded-full text-yellow-950 py-2",
+      " uppercase  font-semibold  text-xs rounded-full text-yellow-950 py-2 ",
     link: " uppercase text-sm",
     linkMain: " text-purple-700 font-bold text-sx tracking-wide  text-sm  ",
     transparent: 'border-2 rounded-full text-stone-500 uppercase py-3 px-4'
